@@ -8,6 +8,7 @@ Goals:
 - ethbooks will take power from the powerful few back to the people
 
 Why we are buidling ethbook
+
   "When we are dead, it’s not what we HODL or SODL that matters. It’s what we BUIDL" - Ajit Tripathi, Consensys Enterprise
 
 
