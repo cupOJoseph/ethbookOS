@@ -1,20 +1,14 @@
 # ethbookOS
-A project built for ETHDenver 2019. A fork of chromiumOS with built in Ethereum functionality
+A project built for ETHDenver 2019. A fork of chromiumOS with built-in Ethereum functionality
 
 Goals:
-- Create a distribution of ChromiumOS without google apps.
+- Create a distribution of ethbookOS with native plug-ins to run dApps and IPFS and ZKP
+- ethbooks that run ethbookOS are light-weight both in terms of hardware and software, and secure
+- ethbooks will take blockchain technology from BUIDLers to consummers 
+- ethbooks will take power from the powerful few back to the people
 
-MVP Tasks:
-- download and build chromiumOS
-- find and add android apps and extensions that we like that are related to eth
-- replace chromium browser with Brave. I think this may be trickier than expected.
-- create a distribution of this OS that can be easily shared
-
-bonus
-- hardware wallet
-- connect to Lattice1
-- other stretch goals?
+Why we are buidling ethbook
+  "When we are dead, it’s not what we HODL or SODL that matters. It’s what we BUIDL" - Ajit Tripathi, Consensys Enterprise
 
 
-Bounty and prize goals:
 
