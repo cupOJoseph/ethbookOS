@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charSet="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>
+      My Landing Page
+    </title>
+    <meta name="description" content="This description shows when you share a link to your page on Facebook or Twitter."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="canonical" href="$CANONICAL$"/>
+    <link rel="icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <style tyle="text/css">
+      body {
+            font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            --color-dark: rgba(0,0,0,1);
+            --color-dark-secondary: rgba(0,0,0,1);
+            --color-dark-link: undefined;
+            --wrapper-width: 1030px;
+          } 
+      .section:not(.dark), .section:not(.dark) .color-text { color: #fff; --color-secondary: #fff; } 
+      .section.dark, .section.dark .color-text { color: rgba(0,0,0,1); --color-secondary: rgba(0,0,0,1); } 
+      .section:not(.dark) .color { color: #fff; } 
+      .section.dark .color { color: rgba(0,0,0,1); } 
+      .weight-text { font-weight: 400; } 
+      .weight-text-m { font-weight: 500; } 
+      .weight-text-h { font-weight: 600; } 
+      .weight-title { font-weight: 400; } 
+      .weight-title-m { font-weight: 400; } 
+      .weight-title-h { font-weight: 700; } 
+      .font-title { font-family: 'Playfair Display', Georgia, serif; } 
+      a:not(.btn), .link { 
+            color: rgba(255,255,255,1); 
+            --link-hover-bg: rgba(255, 255, 255, 0.05); 
+            --link-hover: rgb(204, 204, 204);
+          } 
+      .dark a:not(.btn), .dark .link { 
+            color: rgba(0,0,0,1); 
+            --link-hover-bg: rgba(0, 0, 0, 0.05); 
+            --link-hover: rgb(0, 0, 0);
+          } 
+      
+            a, .link { text-decoration: none; font-weight: 500; } 
+            a:not(.btn):hover { text-decoration: underline } 
+      .wr { max-width: 1030px; max-width: var(--wr-max); }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet"/>
+  </head>
+  <body>
+    <header id="header" class="section header" style="--wr-max:1030px">
+      <div class="wr color">
+        <a id="headerLogo" href="/" class="header__logo" style="font-weight:700">
+          ETH Book OS
+        </a>
+        <nav id="headerNav" class="header__nav">
+          <div class="headerNav__links">
+            <a href="#">
+              Features
+            </a>
+            <a href="#">
+              Open Source
+            </a>
+          </div>
+          <div class="header__navCtas">
+            <a href="#" class="btn btn--a btn--primary" style="color:rgba(0,0,0,1)">
+              Download
+            </a>
+          </div>
+        </nav>
+        <nav id="headerMenu" class="header__nav header__nav--hidden">
+          <div id="headerMenuButton" class="burger">
+            Menu
+          </div>
+        </nav>
+      </div>
+      <nav id="headerDrawer" class="headerMenu col-dark-sec">
+        <div id="headerDrawerBackdrop" class="headerMenu__backdrop">
+        </div>
+        <div class="headerMenu__wrapper" style="background-color:rgb(255, 0, 64)">
+          <button id="headerDrawerClose" class="headerMenu__close btn">
+          </button>
+          <ul class="headerMenu__links">
+            <li>
+              <a href="#" class="drawerLink">
+                Features 
+              </a>
+            </li>
+            <li>
+              <a href="#" class="drawerLink">
+                Open Source 
+              </a>
+            </li>
+            <li>
+              <a href="#" class="drawerLink col-dark">
+                Download 
+                <svg width="13" height="12" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.557 7H1a1 1 0 1 1 0-2h8.586L7.007 2.421a1 1 0 0 1 1.414-1.414l4.243 4.243c.203.202.3.47.292.736a.997.997 0 0 1-.292.735L8.42 10.964A1 1 0 1 1 7.007 9.55L9.557 7z" fill="currentColor">
+                  </path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <script>
+        (function() {
+          var buffer = 10;
+          var margin = 60 + 40 + buffer;
+          // button
+          var button = document.getElementById('headerMenuButton');
+          var buttonWrapper = document.getElementById('headerMenu');
+          // drawer
+          var drawer = document.getElementById('headerDrawer');
+          var drawerBackdrop = document.getElementById('headerDrawerBackdrop');
+          var drawerClose = document.getElementById('headerDrawerClose');
+          // header UI
+          var logo = document.getElementById('headerLogo');
+          var nav = document.getElementById('headerNav');
+          var logoWidth = logo.offsetWidth;
+          var navWidth = nav.offsetWidth;
+        
+          var determineVisibility = function() {
+            var parent = window.innerWidth;
+            if (logoWidth + navWidth > parent - margin) {
+              nav.classList.add('header__nav--hidden');
+              buttonWrapper.classList.add('headerMenu--visible');
+            } else {
+              nav.classList.remove('header__nav--hidden');
+              buttonWrapper.classList.remove('headerMenu--visible');
+            }
+          };
+        
+          var showDrawer = function() {
+            drawer.classList.add('headerMenu--visible');
+          };
+        
+          var hideDrawer = function() {
+            drawer.classList.remove('headerMenu--visible');
+          };
+        
+          button.onclick = showDrawer;
+          drawerBackdrop.onclick = hideDrawer;
+          drawerClose.onclick = hideDrawer;
+        
+          window.addEventListener('resize', determineVisibility);
+          determineVisibility();
+        })();
+      </script>
+    </header>
+    <div id="hero" class="section section--hero section--noPadding section--center" style="background-color:rgba(255,51,102,1);--wr-max:1030px">
+      <div class="divider divider--curve">
+        <svg viewBox="0 0 1695 72" preserveAspectRatio="none">
+          <path d="M0 0c282.5 45 565 67.5 847.5 67.5S1412.5 45 1695 0v72H0V0z" fill="rgba(245,245,245,1)" fill-rule="evenodd">
+          </path>
+        </svg>
+      </div>
+      <div class="ft ft--center ft--isFirst" style="--pdx-padding-top:0.38;--pdx-padding-bottom:1">
+        <div class="ft__half">
+          <div class="ft__wrapper" style="max-width:485px">
+            <div class="ft__content">
+              <h1 class="hero__title color weight-title-h font-title">
+                Free yourself.
+              </h1>
+              <h2 class="hero__subtitle weight-text">
+                An accessible chromiumOS without the trackers.
+              </h2>
+              <div class="hero__ctas">
+                <div class="inlineFormWrapper center">
+                  <form id="if_mcoyapg5w8j" class="inlineForm inlineForm--a">
+                    <div class="inlineFormContent">
+                      <input type="hidden" id="if_siteid_mcoyapg5w8j" value="u9fno7teai6i"/>
+                      <input type="hidden" id="if_listid_mcoyapg5w8j" value="el_bbYlwcwvQgOrhAQq"/>
+                      <input type="hidden" id="if_action_mcoyapg5w8j" value="landen"/>
+                      <input type="hidden" id="if_url_mcoyapg5w8j"/>
+                      <input type="hidden" id="if_legal_mcoyapg5w8j"/>
+                      <input type="hidden" id="if_reqaccept_mcoyapg5w8j"/>
+                      <input type="email" id="if_email_mcoyapg5w8j" class="inlineForm__input" placeholder="email@example.com"/>
+                      <button id="if_submit_mcoyapg5w8j" class="btn btn--a btn--primary btn--large" style="color:rgba(0,0,0,1)">
+                        Get Updates
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <script>
+                  ;(function() {
+                    var elForm = document.getElementById('if_mcoyapg5w8j'),
+                      elSubmitBtn = document.getElementById('if_submit_mcoyapg5w8j'),
+                      elSiteID = document.getElementById('if_siteid_mcoyapg5w8j'),
+                      elListID = document.getElementById('if_listid_mcoyapg5w8j'),
+                      elEmail = document.getElementById('if_email_mcoyapg5w8j'),
+                      elAction = document.getElementById('if_action_mcoyapg5w8j'),
+                      elURL = document.getElementById('if_url_mcoyapg5w8j'),
+                      elName = document.getElementById('if_name_mcoyapg5w8j'),
+                      elReqAccept = document.getElementById('if_reqaccept_mcoyapg5w8j'),
+                      elAccept = document.getElementById('if_accept_mcoyapg5w8j'),
+                      elAcceptLabel = document.getElementById('if_acceptlbl_mcoyapg5w8j'),
+                      elLegal = document.getElementById('if_legal_mcoyapg5w8j'),
+                      elLegalUI = document.getElementById('if_legalui_mcoyapg5w8j')
+                  
+                    function bindInlineForm() {
+                      elForm.addEventListener('submit', handleInlineSubmit)
+                      elSubmitBtn.addEventListener('click', handleInlineSubmit)
+                      elEmail.oninput = handleEmailChange
+                    }
+                  
+                    function handleInlineSubmit(e) {
+                      e.preventDefault()
+                  
+                      var data = {
+                        siteId: elSiteID.value,
+                        listId: elListID.value,
+                        email: elEmail.value,
+                        action: elAction.value,
+                        name: elName ? elName.value : null,
+                        didAccept: elAccept ? elAccept.checked : null,
+                        legal: elLegal ? elLegal.value : null
+                      }
+                  
+                      if (!validateInlineData(data)) {
+                        return
+                      }
+                  
+                      elSubmitBtn.classList.add('btn--loading')
+                  
+                      if (data.action === 'forward') {
+                        forwardData(data)
+                      } else {
+                        sendInlineData(data)
+                      }
+                    }
+                  
+                    function forwardData(data) {
+                      var url = elURL.value
+                  
+                      url = url.replace('[EMAIL]', data.email)
+                      url = url.replace('[NAME]', data.name)
+                  
+                      window.location.href = url
+                    }
+                  
+                    function sendInlineData(data) {
+                      var request = new XMLHttpRequest()
+                      request.open('POST', window.location.origin + '/api/subscribe', true)
+                      request.setRequestHeader(
+                        'Content-Type',
+                        'application/x-www-form-urlencoded; charset=UTF-8'
+                      )
+                      request.send(JSON.stringify(data))
+                  
+                      request.onload = function() {
+                        elSubmitBtn.classList.remove('btn--loading')
+                        if (this.status >= 200 && this.status < 400) {
+                          // success handling
+                          clearInlineData()
+                          elSubmitBtn.classList.add('btn--success')
+                          setTimeout(function() {
+                            elSubmitBtn.classList.remove('btn--success')
+                          }, 2000)
+                        } else {
+                          console.log('error')
+                        }
+                      }
+                  
+                      request.onerror = function() {
+                        alert(
+                          'A network error occured. Please make sure you are connected to the internet.'
+                        )
+                      }
+                    }
+                  
+                    function clearInlineData() {
+                      elEmail.value = ''
+                      if (elName) {
+                        elName.value = ''
+                      }
+                      showLegal(false)
+                    }
+                  
+                    function handleEmailChange(e) {
+                      if (e.target.value && e.target.value.length > 6) {
+                        showLegal(true)
+                      } else {
+                        showLegal(false)
+                      }
+                    }
+                  
+                    function showLegal(show) {
+                      if (elLegalUI) {
+                        if (show) {
+                          elLegalUI.classList.add('show')
+                        } else {
+                          elLegalUI.classList.remove('show')
+                        }
+                      }
+                    }
+                  
+                    function validateInlineData(data) {
+                      var error = false
+                  
+                      if (
+                        data.email.length < 6 ||
+                        data.email.indexOf('@') === -1 ||
+                        data.email.indexOf('.') === -1
+                      ) {
+                        error = true
+                        elEmail.classList.add('error')
+                      } else {
+                        elEmail.classList.remove('error')
+                      }
+                  
+                      if (elName && elName.value === '') {
+                        error = true
+                        elName.classList.add('error')
+                      } else if (elName) {
+                        elName.classList.remove('error')
+                      }
+                  
+                      if (elAcceptLabel) {
+                        if (elReqAccept.value === 'true' && !elAccept.checked) {
+                          error = true
+                          elAcceptLabel.classList.add('error')
+                        } else {
+                          elAcceptLabel.classList.remove('error')
+                        }
+                      }
+                  
+                      return error === false
+                    }
+                    bindInlineForm()
+                  })()
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ft__half pdx" style="background-color:rgba(255, 51, 102, 1.0);--pdx-maxheight:1">
+          <div class="pdxItem pdxItem--laptop-3d">
+            <svg viewBox="0 0 1010 661" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <defs>
+                <lineargradient x1="50%" y1="0%" x2="50%" y2="100%" id="frameLaptop3DOpena">
+                  <stop stop-color="#F1F2F4" offset="0%">
+                  </stop>
+                  <stop stop-color="#FCFCFC" offset="90.636%">
+                  </stop>
+                  <stop stop-color="#DEDEDF" offset="100%">
+                  </stop>
+                </lineargradient>
+                <path d="M152 0h706c8.284 0 15 6.716 15 15v465c0 8.284-6.716 15-15 15H152c-8.284 0-15-6.716-15-15V15c0-8.284 6.716-15 15-15z" id="frameLaptop3DOpenb">
+                </path>
+                <filter x="-.7%" y="-1%" width="101.4%" height="102%" filterUnits="objectBoundingBox" id="frameLaptop3DOpenc">
+                  <fegaussianblur stdDeviation="5" in="SourceAlpha" result="shadowBlurInner1">
+                  </fegaussianblur>
+                  <feoffset in="shadowBlurInner1" result="shadowOffsetInner1">
+                  </feoffset>
+                  <fecomposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1">
+                  </fecomposite>
+                  <fecolormatrix values="0 0 0 0 0.790646588 0 0 0 0 0.790646588 0 0 0 0 0.799790534 0 0 0 1 0" in="shadowInnerInner1">
+                  </fecolormatrix>
+                </filter>
+                <lineargradient x1="0%" y1="50%" x2="100%" y2="50%" id="frameLaptop3DOpend">
+                  <stop stop-color="#D6D6D8" offset="0%">
+                  </stop>
+                  <stop stop-color="#DFE1E6" offset="1.59%">
+                  </stop>
+                  <stop stop-color="#DFE1E6" offset="97.546%">
+                  </stop>
+                  <stop stop-color="#D6D6D8" offset="100%">
+                  </stop>
+                </lineargradient>
+                <lineargradient x1="50%" y1=".296%" x2="50%" y2="70.873%" id="frameLaptop3DOpene">
+                  <stop stop-color="#F4F3F3" offset="0%">
+                  </stop>
+                  <stop stop-color="#FFF" offset="100%">
+                  </stop>
+                </lineargradient>
+                <path d="M136.709 494.593C132.524 499.459 9.38 630.606 3.382 637.08c-5.997 6.475-4.318 11.659 7.446 11.659h989.593c8.826-1.042 11.032-4.51 6.62-10.403-10.912-11.393-130.622-140.08-135.513-145.005-1.769-2.182-6.614-3.272-14.537-3.272H151.45c-6.57-.163-11.483 1.348-14.74 4.534z" id="frameLaptop3DOpenf">
+                </path>
+                <filter x="-.6%" y="-3.8%" width="101.2%" height="107.6%" filterUnits="objectBoundingBox" id="frameLaptop3DOpeng">
+                  <fegaussianblur stdDeviation="3" in="SourceAlpha" result="shadowBlurInner1">
+                  </fegaussianblur>
+                  <feoffset in="shadowBlurInner1" result="shadowOffsetInner1">
+                  </feoffset>
+                  <fecomposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1">
+                  </fecomposite>
+                  <fecolormatrix values="0 0 0 0 0.874509804 0 0 0 0 0.882352941 0 0 0 0 0.901960784 0 0 0 1 0" in="shadowInnerInner1" result="shadowMatrixInner1">
+                  </fecolormatrix>
+                  <fegaussianblur stdDeviation="3.5" in="SourceAlpha" result="shadowBlurInner2">
+                  </fegaussianblur>
+                  <feoffset dy="5" in="shadowBlurInner2" result="shadowOffsetInner2">
+                  </feoffset>
+                  <fecomposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2">
+                  </fecomposite>
+                  <fecolormatrix values="0 0 0 0 0.875028306 0 0 0 0 0.875028306 0 0 0 0 0.875028306 0 0 0 0.5 0" in="shadowInnerInner2" result="shadowMatrixInner2">
+                  </fecolormatrix>
+                  <femerge>
+                    <femergenode in="shadowMatrixInner1">
+                    </femergenode>
+                    <femergenode in="shadowMatrixInner2">
+                    </femergenode>
+                  </femerge>
+                </filter>
+                <lineargradient x1="50%" y1="0%" x2="50%" y2="99.739%" id="frameLaptop3DOpenh">
+                  <stop stop-color="#ACB0B8" offset="0%">
+                  </stop>
+                  <stop stop-color="#CACCD3" offset="100%">
+                  </stop>
+                </lineargradient>
+                <path d="M302.339 638h405.9a2 2 0 0 0 1.826-2.815l-28.224-63.223a5 5 0 0 0-4.566-2.962H331.822a5 5 0 0 0-4.605 3.052l-26.72 63.169a2 2 0 0 0 1.842 2.779z" id="frameLaptop3DOpeni">
+                </path>
+                <filter x=".1%" y="-.7%" width="99.7%" height="101.4%" filterUnits="objectBoundingBox" id="frameLaptop3DOpenj">
+                  <feoffset dy="1" in="SourceAlpha" result="shadowOffsetInner1">
+                  </feoffset>
+                  <fecomposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1">
+                  </fecomposite>
+                  <fecolormatrix values="0 0 0 0 0.763105752 0 0 0 0 0.763105752 0 0 0 0 0.763105752 0 0 0 0.5 0" in="shadowInnerInner1">
+                  </fecolormatrix>
+                </filter>
+                <lineargradient x1="50%" y1="48.921%" x2="50%" y2="0%" id="frameLaptop3DOpenk">
+                  <stop stop-opacity="0" offset="0%">
+                  </stop>
+                  <stop stop-opacity=".187" offset="100%">
+                  </stop>
+                </lineargradient>
+              </defs>
+              <g fill="none" fill-rule="evenodd">
+                <g>
+                  <use fill="url(#frameLaptop3DOpena)" xlink:href="#frameLaptop3DOpenb">
+                  </use>
+                  <use fill="#000" filter="url(#frameLaptop3DOpenc)" xlink:href="#frameLaptop3DOpenb">
+                  </use>
+                </g>
+                <path fill="transparent" d="M155 31h705v440H155z">
+                </path>
+                <path d="M0 639.755c.017 9.541.026 14.955.026 16.242 0 2.057 3.757 4.742 10.802 4.742h989.593c7.53 0 8.815-2.818 8.826-5.795.003-1.006.007-6.069.01-15.189H0z" fill="url(#frameLaptop3DOpend)">
+                </path>
+                <g>
+                  <use fill="url(#frameLaptop3DOpene)" xlink:href="#frameLaptop3DOpenf">
+                  </use>
+                  <use fill="#000" filter="url(#frameLaptop3DOpeng)" xlink:href="#frameLaptop3DOpenf">
+                  </use>
+                </g>
+                <path d="M170.105 555.873l38.887-54.25a3 3 0 0 1 2.438-1.252h586.493a3 3 0 0 1 2.41 1.212l40.25 54.25a3 3 0 0 1-2.41 4.787h-665.63a3 3 0 0 1-2.438-4.747z" fill="url(#frameLaptop3DOpenh)" opacity=".492">
+                </path>
+                <g>
+                  <use fill="#DFE1E6" xlink:href="#frameLaptop3DOpeni">
+                  </use>
+                  <use fill="#000" filter="url(#frameLaptop3DOpenj)" xlink:href="#frameLaptop3DOpeni">
+                  </use>
+                </g>
+                <path d="M98.795 568.32c19.863-21.529 31.066-33.61 33.61-36.245 6.872-7.887 9.298-8.674 19.252-9.075h702.68c15.406 0 16.184 2.404 18.498 4.868 12.997 13.837 25.95 27.69 38.863 41.559a3 3 0 0 1-2.2 5.044l-808.502-1.117a3 3 0 0 1-2.2-5.035z" fill="url(#frameLaptop3DOpenk)" opacity=".471" transform="translate(0 -33)">
+                </path>
+              </g>
+            </svg>
+            <div class="pdxContent">
+              <img src="assets/c54popdl.png?w=496&amp;h=311&amp;fit=crop" srcSet="assets/c54popdl.png?w=744&amp;h=467&amp;fit=crop 2x" alt="chromiumosEx.png"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="features" class="section section--features section--center dark" style="background-color:rgba(245,245,245,1);padding-bottom:60px;padding-top:60px;--wr-max:1030px">
+      <div class="wr">
+        <div class="features features--trio features--center">
+          <div class="feature">
+            <h3 class="feature__title color weight-text-m">
+              Open Source
+            </h3>
+            <div class="feature__description">
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <h3 class="feature__title color weight-text-m">
+              Web3 Ready
+            </h3>
+            <div class="feature__description">
+              <p>
+                Built in Ethereum wallet and developer tools, ready to go out of the box.
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <h3 class="feature__title color weight-text-m">
+              Super Secure
+            </h3>
+            <div class="feature__description">
+              <p>
+                Every app has its integrity verified by open source zksnarks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="press" class="section section--logos section--center" style="background-color:rgba(255,51,102,1);padding-bottom:30px;padding-top:30px;--wr-max:1030px">
+      <div class="wr">
+        <h3 class="weight-text section__subtitle center standalone">
+          As seen in
+        </h3>
+        <div class="logos logos--fill">
+          <div class="logos__logo" style="background-image:url(https://landen.imgix.net/defaults/logos/entrepreneur.svg)">
+          </div>
+          <div class="logos__logo" style="background-image:url(https://landen.imgix.net/defaults/logos/forbes.svg)">
+          </div>
+          <div class="logos__logo" style="background-image:url(https://landen.imgix.net/defaults/logos/fortune.svg)">
+          </div>
+          <div class="logos__logo" style="background-image:url(https://landen.imgix.net/defaults/logos/inc500.svg)">
+          </div>
+          <div class="logos__logo" style="background-image:url(https://landen.imgix.net/defaults/logos/huffingtonpost.svg)">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="testimonials" class="section section--testimonials section--center dark" style="background-color:#fff;padding-bottom:60px;padding-top:60px;--wr-max:1030px">
+      <div class="wr">
+        <h2 class="color weight-title-h font-title section__title center">
+          You&#39;re in great company.
+        </h2>
+        <h3 class="weight-text section__subtitle center">
+          See what your clients say about us
+        </h3>
+        <div class="testimonials">
+          <div class="testimonial">
+            <div class="testimonial__quote color">
+              <p>
+                I love my chromebook, but all the google trackers makes me feel watched. ETH OS makes me feel safe.
+              </p>
+            </div>
+            <span class="testimonial__name weight-text-m">
+              Jane Doe — 
+            </span>
+            <a href="https://www.example.com" class="testimonial__about weight-text-m">
+              CEO at ACME inc.
+            </a>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial__quote color">
+              <p>
+                ETH OS is the best operating system ever.
+              </p>
+            </div>
+            <span class="testimonial__name weight-text-m">
+              John Smith — 
+            </span>
+            <a href="https://www.example.com" class="testimonial__about weight-text-m">
+              Lead designer at Design Firm
+            </a>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial__quote color">
+              <p>
+                If you don&#39;t use ETH OS on your chromium books you are a dingle.
+              </p>
+            </div>
+            <span class="testimonial__name weight-text-m">
+              Clark Kent — 
+            </span>
+            <a href="https://www.example.com" class="testimonial__about weight-text-m">
+              Landing page evangelist
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="faq" class="section section--faq section--center dark" style="background-color:rgba(245,245,245,1);padding-bottom:60px;padding-top:60px;--wr-max:1030px">
+      <div class="wr">
+        <h2 class="color weight-title-h font-title section__title center standalone">
+          FAQ
+        </h2>
+        <div class="faq">
+          <div class="faqItem">
+            <h3 class="color weight-text-h faqItem__question">
+              Who made this?
+            </h3>
+            <p class="faqItem__answer">
+              An open source team, working at Eth Denver 2019.
+            </p>
+          </div>
+          <div class="faqItem">
+            <h3 class="color weight-text-h faqItem__question">
+              Do I have to use Ethereum?
+            </h3>
+            <p class="faqItem__answer">
+              No. We just give you the option.
+            </p>
+          </div>
+          <div class="faqItem">
+            <h3 class="color weight-text-h faqItem__question">
+              Can I put this on my computer?
+            </h3>
+            <p class="faqItem__answer">
+              Yes, we provide a bootable version that is compatible with every laptop which is supported by ChromiumOS.
+            </p>
+          </div>
+          <div class="faqItem">
+            <h3 class="color weight-text-h faqItem__question">
+              Where is the source code?
+            </h3>
+            <p class="faqItem__answer">
+              On our github. Link
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="cta" class="section section--cta section--center" style="background-color:rgba(255,51,102,1);padding-bottom:60px;padding-top:60px;--wr-max:1030px">
+      <div class="wr">
+        <div class="cta__titles">
+          <h2 class="color weight-title-h font-title section__title center">
+            Ready to download?
+          </h2>
+          <h3 class="weight-text section__subtitle center">
+            Let&#39;s get started.
+          </h3>
+        </div>
+        <div class="cta__ctas">
+          <a href="#" class="btn btn--a btn--primary btn--large" style="color:rgba(0,0,0,1)">
+            Quick start guide
+          </a>
+          <a href="" class="btn btn--a btn--secondary btn--large" style="color:rgba(0,0,0,1)">
+            Downloads
+          </a>
+        </div>
+      </div>
+    </div>
+    <footer id="footer" class="section section--footer section--center" style="background-color:rgba(17,17,17,1);padding-bottom:15px;padding-top:15px;--wr-max:1030px">
+      <div class="wr">
+        <div class="footer footer--simple">
+          <div class="footer__primary">
+            <span>
+              © 2019 ETH Book
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      /*! smooth-scroll v14.2.1 | (c) 2018 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/smooth-scroll */
+      !(function(e,t){"function"==typeof define&&define.amd?define([],(function(){return t(e)})):"object"==typeof exports?module.exports=t(e):e.SmoothScroll=t(e)})("undefined"!=typeof global?global:"undefined"!=typeof window?window:this,(function(e){"use strict";var t={ignore:"[data-scroll-ignore]",header:null,topOnEmptyHash:!0,speed:500,clip:!0,offset:0,easing:"easeInOutCubic",customEasing:null,updateURL:!0,popstate:!0,emitEvents:!0},n=function(){return"querySelector"in document&&"addEventListener"in e&&"requestAnimationFrame"in e&&"closest"in e.Element.prototype},o=function(){for(var e={},t=0;t<arguments.length;t++)!(function(t){for(var n in t)t.hasOwnProperty(n)&&(e[n]=t[n])})(arguments[t]);return e},r=function(t){return!!("matchMedia"in e&&e.matchMedia("(prefers-reduced-motion)").matches)},a=function(t){return parseInt(e.getComputedStyle(t).height,10)},i=function(e){var t;try{t=decodeURIComponent(e)}catch(n){t=e}return t},c=function(e){"#"===e.charAt(0)&&(e=e.substr(1));for(var t,n=String(e),o=n.length,r=-1,a="",i=n.charCodeAt(0);++r<o;){if(0===(t=n.charCodeAt(r)))throw new InvalidCharacterError("Invalid character: the input contains U+0000.");t>=1&&t<=31||127==t||0===r&&t>=48&&t<=57||1===r&&t>=48&&t<=57&&45===i?a+="\\"+t.toString(16)+" ":a+=t>=128||45===t||95===t||t>=48&&t<=57||t>=65&&t<=90||t>=97&&t<=122?n.charAt(r):"\\"+n.charAt(r)}var c;try{c=decodeURIComponent("#"+a)}catch(e){c="#"+a}return c},u=function(e,t){var n;return"easeInQuad"===e.easing&&(n=t*t),"easeOutQuad"===e.easing&&(n=t*(2-t)),"easeInOutQuad"===e.easing&&(n=t<.5?2*t*t:(4-2*t)*t-1),"easeInCubic"===e.easing&&(n=t*t*t),"easeOutCubic"===e.easing&&(n=--t*t*t+1),"easeInOutCubic"===e.easing&&(n=t<.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1),"easeInQuart"===e.easing&&(n=t*t*t*t),"easeOutQuart"===e.easing&&(n=1- --t*t*t*t),"easeInOutQuart"===e.easing&&(n=t<.5?8*t*t*t*t:1-8*--t*t*t*t),"easeInQuint"===e.easing&&(n=t*t*t*t*t),"easeOutQuint"===e.easing&&(n=1+--t*t*t*t*t),"easeInOutQuint"===e.easing&&(n=t<.5?16*t*t*t*t*t:1+16*--t*t*t*t*t),e.customEasing&&(n=e.customEasing(t)),n||t},s=function(){return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight)},l=function(t,n,o,r){var a=0;if(t.offsetParent)do{a+=t.offsetTop,t=t.offsetParent}while(t);return a=Math.max(a-n-o,0),r&&(a=Math.min(a,s()-e.innerHeight)),a},d=function(e){return e?a(e)+e.offsetTop:0},f=function(e,t,n){t||history.pushState&&n.updateURL&&history.pushState({smoothScroll:JSON.stringify(n),anchor:e.id},document.title,e===document.documentElement?"#top":"#"+e.id)},m=function(t,n,o){0===t&&document.body.focus(),o||(t.focus(),document.activeElement!==t&&(t.setAttribute("tabindex","-1"),t.focus(),t.style.outline="none"),e.scrollTo(0,n))},h=function(t,n,o,r){if(n.emitEvents&&"function"==typeof e.CustomEvent){var a=new CustomEvent(t,{bubbles:!0,detail:{anchor:o,toggle:r}});document.dispatchEvent(a)}};return function(a,p){var g,v,y,S,E,b,O,I={};I.cancelScroll=function(e){cancelAnimationFrame(O),O=null,e||h("scrollCancel",g)},I.animateScroll=function(n,r,a){var i=o(g||t,a||{}),c="[object Number]"===Object.prototype.toString.call(n),p=c||!n.tagName?null:n;if(c||p){var v=e.pageYOffset;i.header&&!S&&(S=document.querySelector(i.header)),E||(E=d(S));var y,b,C,w=c?n:l(p,E,parseInt("function"==typeof i.offset?i.offset(n,r):i.offset,10),i.clip),L=w-v,A=s(),H=0,q=function(t,o){var a=e.pageYOffset;if(t==o||a==o||(v<o&&e.innerHeight+a)>=A)return I.cancelScroll(!0),m(n,o,c),h("scrollStop",i,n,r),y=null,O=null,!0},Q=function(t){y||(y=t),H+=t-y,b=H/parseInt(i.speed,10),b=b>1?1:b,C=v+L*u(i,b),e.scrollTo(0,Math.floor(C)),q(C,w)||(O=e.requestAnimationFrame(Q),y=t)};0===e.pageYOffset&&e.scrollTo(0,0),f(n,c,i),h("scrollStart",i,n,r),I.cancelScroll(!0),e.requestAnimationFrame(Q)}};var C=function(t){if(!r()&&0===t.button&&!t.metaKey&&!t.ctrlKey&&"closest"in t.target&&(y=t.target.closest(a))&&"a"===y.tagName.toLowerCase()&&!t.target.closest(g.ignore)&&y.hostname===e.location.hostname&&y.pathname===e.location.pathname&&/#/.test(y.href)){var n=c(i(y.hash)),o=g.topOnEmptyHash&&"#"===n?document.documentElement:document.querySelector(n);o=o||"#top"!==n?o:document.documentElement,o&&(t.preventDefault(),I.animateScroll(o,y))}},w=function(e){if(null!==history.state&&history.state.smoothScroll&&history.state.smoothScroll===JSON.stringify(g)&&history.state.anchor){var t=document.querySelector(c(i(history.state.anchor)));t&&I.animateScroll(t,null,{updateURL:!1})}},L=function(e){b||(b=setTimeout((function(){b=null,E=d(S)}),66))};return I.destroy=function(){g&&(document.removeEventListener("click",C,!1),e.removeEventListener("resize",L,!1),e.removeEventListener("popstate",w,!1),I.cancelScroll(),g=null,v=null,y=null,S=null,E=null,b=null,O=null)},I.init=function(r){if(!n())throw"Smooth Scroll: This browser does not support the required JavaScript methods and browser APIs.";I.destroy(),g=o(t,r||{}),S=g.header?document.querySelector(g.header):null,E=d(S),document.addEventListener("click",C,!1),S&&e.addEventListener("resize",L,!1),g.updateURL&&g.popstate&&e.addEventListener("popstate",w,!1)},I.init(p),I}}));
+    </script>
+    <script>
+      ;(function() {
+        var offset = 0
+      
+        if (document.getElementsByClassName('header--fixed').length) {
+          offset = document.getElementsByClassName('header--fixed')[0].clientHeight;
+        }
+      
+        // smooth scrolling to all anchor links
+        new window.SmoothScroll('a[href*="#"]', {
+          offset: offset
+        });
+      })();
+    </script>
+  </body>
+</html>
